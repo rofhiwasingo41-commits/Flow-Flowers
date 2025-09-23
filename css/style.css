@@ -1,0 +1,115 @@
+/* style.css */
+body {
+  background-color: green;
+  font-family: Arial, sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header h1 {
+  text-align: center;
+  color: yellow;
+  margin: 20px 0;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: blue;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: lightblue;
+}
+
+/* Sections */
+section {
+  margin: 20px;
+  text-align: center;
+}
+
+/* Buttons */
+button {
+  background-color: yellow;
+  color: black;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: orange;
+  transform: scale(1.05);
+}
+
+/* Forms */
+form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 90%;
+  max-width: 400px;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Cards on Flower Types page */
+.container {
+  text-align: center;
+  margin: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 2px solid yellow;
+  font-size: 14px;
+}
