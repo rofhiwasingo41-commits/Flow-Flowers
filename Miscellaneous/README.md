@@ -14,6 +14,8 @@ project/
 │── enquiry.html             # Enquiry form
 │── Contact.html             # Contact form and info
 │── assets/                  # Images and media 
+|__ css
+    |___style.css
 ```
 
 ---
@@ -31,7 +33,7 @@ project/
 ##  Technologies Used
 
 - **HTML5** – Structure and content  
-- **Inline CSS** – Basic styling (for now)  
+- **Inline CSS** – Basic styling  
 
 
 ---
