@@ -74,12 +74,25 @@ input, textarea {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
-
+/* social icons */
+.social-icons {
+  margin-top: 10px;
+}
+.social-icons a {
+  color: white;
+  font-size: 100px;
+  margin: 0 30px;
+  transition: color 0.3s ease, tranform 0.3s ease;
+}
+.social-icons a:hover {
+  color: yellow; /* highlight for hover */
+  transform: scale(1.2);
+}
 textarea {
   resize: vertical;
 }
 
-/* Cards on Flower Types page */
+ Cards on Flower Types page */
 .container {
   text-align: center;
   margin: 20px;
