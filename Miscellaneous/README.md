@@ -33,14 +33,13 @@ project/
 ##  Technologies Used
 
 - **HTML5** – Structure and content  
-- **Inline CSS** – Basic styling  
+- **CSS** – Styling the website  
 
 
 ---
 
 ##  Future Improvements
-
-- Add external CSS for consistent design.  
+  
 - Improve accessibility (labels, ARIA roles).  
 - Add client-side and server-side validation for forms.  
 - Use responsive design for mobile users.  

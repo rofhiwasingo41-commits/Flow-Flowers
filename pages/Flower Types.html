@@ -103,6 +103,19 @@
 </section>
 
 </main>
+<div id="lightbox"><img id="lightboxImage" src=""></div>
+
+<script>
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImage");
+document.querySelectorAll(".thumbnail").forEach(img => {
+  img.addEventListener("click", () => {
+    lightboxImg.src = img.src.replace("100", "600");
+    lightbox.style.display = "flex";
+  });
+});
+lightbox.addEventListener("click", () => lightbox.style.display = "none");
+</script>
 
 <footer>
   <p>&copy; 2025 Flow Flowers</p>
