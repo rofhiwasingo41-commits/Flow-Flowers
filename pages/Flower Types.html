@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flower Types</title>
+    <!--Implementing SEO tags-->
+    <meta name="description" content="Guides and care tips for English rose, English lavender, cherry blossom, tulip, sunflower, and daisy.">
+    <meta name="keywords" content="English rose care, English lavender, cherry blossom, tulip, sunflower, daisy, flower guides, plant types">
+
     <!-- load font awesome for the socialicons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
@@ -20,6 +24,10 @@
     <li><a style="color: blue;" href="enquiry.html">Enquiry</a></li>
     <li><a style="color: blue;" href="Contact.html">Contact</a></li>
       </ul>
+       <div style="margin-left: 20px;"> 
+        <input type="text" id="flowerSearch" placeholder="Search flowers..." style="padding: 5px; border-radius: 4px; border: 1px solid #ccc; width: 150px;">
+    </div>
+
       </nav>
     <header>
 <div class="container">
@@ -116,6 +124,29 @@ document.querySelectorAll(".thumbnail").forEach(img => {
 });
 lightbox.addEventListener("click", () => lightbox.style.display = "none");
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('flowerSearch');
+        const flowerGrid = document.getElementById('flowerGrid');
+        const cards = flowerGrid.querySelectorAll('.card');
+
+        searchInput.addEventListener('keyup', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            cards.forEach(card => {
+                // Get the text content from the h2 (flower name) and the description paragraphs
+                const cardContent = card.textContent.toLowerCase();
+                
+                if (cardContent.includes(searchTerm)) {
+                    card.style.display = 'block'; // Show the card
+                } else {
+                    card.style.display = 'none'; // Hide the card
+                }
+            });
+        });
+    });
+</script>
+
 
 <footer>
   <p>&copy; 2025 Flow Flowers</p>

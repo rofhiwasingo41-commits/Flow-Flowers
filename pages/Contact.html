@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
+    <meta name="description" content="Contact Flow Flowers in Polokwane Central or Flora Park. Find our email, phone number, and address.">
+    <meta name="keywords" content="Contact details, Polokwane florist, Flora Park, email address, phone number, Polokwane South Africa">
     <!-- load font awesome for the socialicons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
@@ -55,15 +57,86 @@
                
               </div>
     </section>
+   <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contactForm');
+            // Use unique IDs for Contact form elements to avoid conflict with Enquiry form
+            const nameInput = document.getElementById('name_contact');
+            const emailInput = document.getElementById('email_contact');
+            const messageInput = document.getElementById('message_contact');
+            const formFeedback = document.getElementById('formFeedback_contact');
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Stop default submission
+                let isValid = true;
+
+                // --- Validation Functions ---
+
+                // 1. Validate Name (must be at least 2 characters)
+                if (nameInput.value.trim().length < 2) {
+                    displayError('nameError_contact', 'Name must be at least 2 characters long.');
+                    isValid = false;
+                } else {
+                    displayError('nameError_contact', '');
+                }
+
+                // 2. Validate Email
+                if (!emailPattern.test(emailInput.value.trim())) {
+                    displayError('emailError_contact', 'Please enter a valid email address.');
+                    isValid = false;
+                } else {
+                    displayError('emailError_contact', '');
+                }
+
+                // 3. Validate Message (must be at least 15 characters, assuming a detailed contact)
+                if (messageInput.value.trim().length < 15) {
+                    displayError('messageError_contact', 'Your message must be at least 15 characters long.');
+                    isValid = false;
+                } else {
+                    displayError('messageError_contact', '');
+                }
+
+                // --- Handle Submission ---
+                if (isValid) {
+                    // All fields are valid.
+                    // NOTE: The 'email recipient processing' mentioned in the checklist requires server-side code (PHP, Node.js, etc.) 
+                    // which is outside the scope of this client-side JS. We'll simulate the successful process here.
+                    
+                    formFeedback.textContent = 'Message sent successfully! We will respond shortly.';
+                    formFeedback.style.color = 'yellow';
+                    form.reset(); // Clear the form
+                    // In a real application, you would use fetch() here to send data to submit_contact.php
+                } else {
+                    formFeedback.textContent = 'Please correct the highlighted errors.';
+                    formFeedback.style.color = 'red';
+                }
+            });
+
+            function displayError(id, message) {
+                const errorElement = document.getElementById(id);
+                errorElement.textContent = message;
+                errorElement.style.color = 'red';
+            }
+        });
+    </script>
    
+
+
     <footer>
-      <p> &copy; 2025 Flow Flowers</p>
+      [span_1](start_span)<p> © 2025 Flow Flowers[span_1](end_span)</p>
+
+    <footer>
+      [span_1](start_span)<p> © 2025 Flow Flowers[span_1](end_span)</p>
       <div class="socials-icons">
               <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
               <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
               <a href="https://wa.me/27111111111" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
     </footer>
+
+    
   
    
 </body>
