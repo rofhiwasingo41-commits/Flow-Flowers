@@ -34,6 +34,69 @@
               <button type="submit">Submit</button>
             </form>
           </section>
+          <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('enquiryForm');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const formFeedback = document.getElementById('formFeedback');
+
+            // Simple Email Regex Pattern
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Stop the default form submission
+                let isValid = true;
+
+                // --- Validation Functions ---
+
+                // 1. Validate Name 
+                if (nameInput.value.trim().length < 2) {
+                    displayError('nameError', 'Name must be at least 2 characters long.');
+                    isValid = false;
+                } else {
+                    displayError('nameError', '');
+                }
+
+                // 2. Validate Email 
+                if (!emailPattern.test(emailInput.value.trim())) {
+                    displayError('emailError', 'Please enter a valid email address.');
+                    isValid = false;
+                } else {
+                    displayError('emailError', '');
+                }
+
+                // 3. Validate Message (must be at least 10 characters)
+                if (messageInput.value.trim().length < 10) {
+                    displayError('messageError', 'Your enquiry must be at least 10 characters long.');
+                    isValid = false;
+                } else {
+                    displayError('messageError', '');
+                }
+
+                // --- Handle Submission ---
+                if (isValid) {
+                    // All fields are valid, proceed with submission (simulated here)
+                    formFeedback.textContent = 'Enquiry submitted successfully! We will be in touch soon.';
+                    formFeedback.style.color = 'yellow';
+                    form.reset(); // Clear the form
+                    // In a real application, you would use fetch() here to send data to submit_enquiry.php
+                    // Example: fetch(form.action, { method: form.method, body: new FormData(form) });
+                } else {
+                    formFeedback.textContent = 'Please correct the errors above.';
+                    formFeedback.style.color = 'red';
+                }
+            });
+
+            function displayError(id, message) {
+                const errorElement = document.getElementById(id);
+                errorElement.textContent = message;
+                errorElement.style.color = 'red';
+            }
+        });
+    </script>
+
         
           <footer>
             <p>&copy; 2025 Flow Flowers</p>
