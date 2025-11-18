@@ -78,13 +78,13 @@ input, textarea {
 .social-icons {
   margin-top: 10px;
 }
-.social-icons a {
+.socials-icons a {
   color: white;
   font-size: 100px;
   margin: 0 30px;
   transition: color 0.3s ease, tranform 0.3s ease;
 }
-.social-icons a:hover {
+.socials-icons a:hover {
   color: yellow; /* highlight for hover */
   transform: scale(1.2);
 }
@@ -131,7 +131,42 @@ img {
     #lightbox img {
       width: 60%;
     }
+/* Style the buttons that are used to open and close the accordion content */
+.accordion-button {
+  background-color: rgba(255, 255, 255, 0.15); /* Slightly lighter background */
+  color: white;
+  cursor: pointer;
+  padding: 12px 15px;
+  width: 100%; /* Take up the full width of the card */
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  transition: 0.4s;
+  border-radius: 4px;
+  margin-top: 10px;
+  font-weight: bold;
+}
 
+/* Add a background color to the button when active or hovered */
+.accordion-button:hover, .accordion-button.active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Style the accordion content */
+.accordion-content {
+  padding: 0 18px;
+  background-color: rgba(0, 0, 0, 0.1);
+  max-height: 0; /* Important for the smooth slide-down effect */
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  border-radius: 4px;
+}
+
+.accordion-content p {
+    padding: 10px 0;
+    margin: 0;
+}
 /* Footer */
 footer {
   text-align: center;
@@ -141,3 +176,4 @@ footer {
   border-top: 2px solid yellow;
   font-size: 14px;
 }
+
