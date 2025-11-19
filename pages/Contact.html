@@ -32,7 +32,7 @@
       <h3>Our Locations</h3>
       <p>Polokwane Central | Flora Park</p>
   
-      <form action="submit_contact.php" method="post">
+      <form id="contactForm" action="submit_contact.php" method="post">
         <label>Name:</label><br>
         <input type="text" name="name" required><br><br>
   
@@ -42,7 +42,9 @@
         <label>Message:</label><br>
         <textarea name="message" rows="5" required></textarea><br><br>
   
-        <button type="submit">Send Message</button>
+        <button type="submit" onclick="ValidateAndSubmit()">Send Message</button>
+<p id="Error-Message" style="color: red; font-weight: bold; margin-top: 10px;"></p>
+
       </form>
       <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d911.854675072448!2d29.48830829141695!3d-23.910223288043568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec6d766e0423db3%3A0x8e16ee1e06cc515d!2sFlora%20Park%2C%20Polokwane%2C%200699!5e0!3m2!1sen!2sza!4v1758675850780!5m2!1sen!2sza" 
@@ -74,8 +76,8 @@
 
                 // --- Validation Functions ---
 
-                // 1. Validate Name (must be at least 2 characters)
-                if (nameInput.value.trim().length < 2) {
+                // 1. Validate Name (must be at least 5 characters)
+                if (nameInput.value.trim().length < 5) {
                     displayError('nameError_contact', 'Name must be at least 2 characters long.');
                     isValid = false;
                 } else {
@@ -97,6 +99,36 @@
                 } else {
                     displayError('messageError_contact', '');
                 }
+                     function validateAndSubmit() {
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const message = document.getElementById('message').value;
+          const errorMessage = document.getElementById('error-message');
+          const form = document.getElementById('contactForm');
+          
+          errorMessage.textContent = ''; // Clear previous error
+
+          // 1. Check for required fields (All input fields are required!!!)
+          if (!name || !email || !message) {
+              errorMessage.textContent = 'All input fields are required!!!';
+              return; // Stop the submission
+          }
+
+          // 2. Check for incorrect email format (Incorrect email format!!!)
+          // Basic email regex validation
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+              errorMessage.textContent = 'Incorrect email format!!!';
+              return; // Stop the submission
+          }
+          
+          // 3. Show Success Alert (Your form was submitted successfully!!!)
+          alert("This page says\nYour form was submitted successfully!!!");
+          
+          // 4. Submit the form to the PHP script (submit_contact.php)
+          // The form will now proceed to the 'action' URL defined in the HTML.
+          form.submit();
+      } 
 
                 // --- Handle Submission ---
                 if (isValid) {

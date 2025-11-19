@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enquriry</title>
+    <title>Enquiry</title>
     <meta name="description" content="Submit an enquiry to Flow Flowers. Ask us anything about our flowers, services, or special requests.">
     <meta name="keywords" content="Flower enquiry, ask a florist, customer service, special orders, bulk flowers">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -23,7 +23,7 @@
         </nav>
         <section>
             <h2>Ask us anything</h2>
-            <form action="submit_enquiry.php" method="post">
+            <form id="enquiryForm" action="submit_enquiry.php" method="post">
               <label>Name:</label><br>
               <input type="text" name="name" required><br><br>
         
@@ -33,70 +33,62 @@
               <label>Your Enquiry:</label><br>
               <textarea name="message" rows="5" required></textarea><br><br>
         
-              <button type="submit">Submit</button>
+              <button type="submit" onclick="validateAndSubmitEnquiry()">Submit</button>
+
+              <p id="error-message" style="color: red; font-weight: bold; margin-top: 10px;"></p>
+            
             </form>
+
+            <p id="successMessage" style="font-weight: bold; color: yellow; display: none;">Message Sent</p>
           </section>
           <script>
-        document.addEventListener('DOMContentLoaded', () => {
+       document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('enquiryForm');
-            const nameInput = document.getElementById('name');
-            const emailInput = document.getElementById('email');
-            const messageInput = document.getElementById('message');
-            const formFeedback = document.getElementById('formFeedback');
+         });
+          function validateAndSubmitEnquiry() { 
+                const name = document.getElementById('name').value;
+ const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                const errorMessage = document.getElementById('error-message');
+                const form = document.getElementById('enquiryForm');
+                
+errorMessage.textContent = '';
+ // Clear previous error
 
-            // Simple Email Regex Pattern
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                //  Check for required fields (All input fields are required!!!)
+                if (!name || !email || !message) {
+                    errorMessage.textContent = 'All input fields are required!!!';
+return; // Stop the submission
+                };
+                // Check for incorrect email format (Incorrect email format!!!)
+                // Basic email regex validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+ if (!emailRegex.test(email)) {
+                    errorMessage.textContent = 'Incorrect email format!!!';
+ return; // Stop the submission
+                };
 
-            form.addEventListener('submit', function(event) {
-                event.preventDefault(); // Stop the default form submission
-                let isValid = true;
+ //  Show Success Alert (Your form was submitted successfully!!!)
+                alert("This page says\nYour form was submitted successfully!!!");
+ //  Submit the form to the PHP script (submit_enquiry.php)
+                form.submit();
+}
 
-                // --- Validation Functions ---
 
-                // 1. Validate Name 
-                if (nameInput.value.trim().length < 2) {
-                    displayError('nameError', 'Name must be at least 2 characters long.');
-                    isValid = false;
-                } else {
-                    displayError('nameError', '');
-                }
 
-                // 2. Validate Email 
-                if (!emailPattern.test(emailInput.value.trim())) {
-                    displayError('emailError', 'Please enter a valid email address.');
-                    isValid = false;
-                } else {
-                    displayError('emailError', '');
-                }
+            // added listener for form submisssion
+            document.getElementById('enquiryForm').addEventListener('submit', function(event) {
+                // Prenvent the Default action - NOT needed if validateAndSubmitEnquiry() handles submission
+                 event.preventDefault();
+//This would typically end the data to the server here using fetch() or XMLHttpRequest
 
-                // 3. Validate Message (must be at least 10 characters)
-                if (messageInput.value.trim().length < 10) {
-                    displayError('messageError', 'Your enquiry must be at least 10 characters long.');
-                    isValid = false;
-                } else {
-                    displayError('messageError', '');
-                }
+                // Hide the form - The following line is logically wrong (it displays 'block' to hide)
+                 Document.getElementById('enquiryForm').style.display = 'block';
+                //  //showing success message
 
-                // --- Handle Submission ---
-                if (isValid) {
-                    // All fields are valid, proceed with submission (simulated here)
-                    formFeedback.textContent = 'Enquiry submitted successfully! We will be in touch soon.';
-                    formFeedback.style.color = 'yellow';
-                    form.reset(); // Clear the form
-                    // In a real application, you would use fetch() here to send data to submit_enquiry.php
-                    // Example: fetch(form.action, { method: form.method, body: new FormData(form) });
-                } else {
-                    formFeedback.textContent = 'Please correct the errors above.';
-                    formFeedback.style.color = 'red';
-                }
-            });
-
-            function displayError(id, message) {
-                const errorElement = document.getElementById(id);
-                errorElement.textContent = message;
-                errorElement.style.color = 'red';
-            }
-        });
+                // This section can be kept if you decide to fully manage the success message display after submission
+                document.getElementById('successMessage').style.display = 'block';
+ }); // Corrected syntax
 
 /**
  * Updates the footer element with the current time and date every second.
