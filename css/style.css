@@ -203,6 +203,24 @@ img {
 .accordion-content p {
     margin: 15px 0;
 }
+
+/* Styling for Dynamic Content (Real-Time Clock) */
+#real-time-content {
+    color: yellow; 
+    font-weight: bold;
+    margin: 10px auto;
+    padding: 5px 15px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    font-size: 0.9em;
+    display: inline-block; /* Helps center the text and contain the background */
+}
+
+/* Ensure the footer is centered for the above element to center correctly */
+footer {
+  text-align: center;
+  /* ... existing footer styles ... */
+}
 /* Footer */
 footer {
   text-align: center;

@@ -97,11 +97,39 @@
                 errorElement.style.color = 'red';
             }
         });
-    </script>
+
+/**
+ * Updates the footer element with the current time and date every second.
+ */
+function updateClock() {
+    const now = new Date();
+    
+    // Formatting options for time (e.g., 02:30:15 PM)
+    const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+    const timeString = now.toLocaleTimeString('en-US', timeOptions);
+
+    // Formatting options for date (e.g., Wednesday, November 19, 2025)
+    const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const dateString = now.toLocaleDateString('en-US', dateOptions);
+
+    const displayElement = document.getElementById('real-time-content');
+    
+    if (displayElement) {
+        // Update the content of the footer element
+        displayElement.innerHTML = `Current Time: ${timeString} | Today's Date: ${dateString}`;
+    }
+}
+
+// Call the function immediately to avoid a 1-second delay, then set it to run every 1000ms (1 second)
+updateClock();
+setInterval(updateClock, 1000);
+
+</script>
 
         
           <footer>
             <p>&copy; 2025 Flow Flowers</p>
+           <div id="real-time-content"></div>
             <div class="socials-icons">
               <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
               <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
