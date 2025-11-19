@@ -167,6 +167,42 @@ img {
     padding: 10px 0;
     margin: 0;
 }
+.accordion-button {
+  background-color: #0b9228; /* Darker background */
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  transition: background-color 0.4s ease;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.accordion-button:hover {
+  background-color: #555;
+}
+
+.accordion-button.active {
+  background-color: yellow; /* Highlight when active */
+  color: green;
+}
+
+.accordion-content {
+  padding: 0 15px;
+  background-color: rgba(255, 255, 255, 0.05); /* Slightly lighter background for content */
+  max-height: 0; /* Initially hidden */
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  border-radius: 4px;
+}
+
+.accordion-content p {
+    margin: 15px 0;
+}
 /* Footer */
 footer {
   text-align: center;

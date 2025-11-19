@@ -19,7 +19,7 @@
 
          <nav> 
             <ul>
-                <li><a style="color: blue;" href="index.html">Home</a></li>
+                <li><a style="color: blue;" href="../index.html">Home</a></li>
                 <li><a style="color: blue;" href="About Us.html">About Us</a></li>
                 <li><a style="color: blue;" href="Flower Types.html">Plant Types</a></li>
                 <li><a style="color: blue;" href="enquiry.html">Enquiry</a></li>
@@ -28,28 +28,73 @@
                   </nav>
                 </nav>
          </header> 
+         <section class="Founders">
+          <h2>Meet The Founders</h2>
+          <div class="Founder-Gallery">
+              <div class="Founder Card">
+               <img src="../assets/officer 1.jpg" alt="Founder 1" class="founder-img">
+                <h3>Thomas Anderson</h3>
+                 <p>Specializes in flower sourcing and quality control.</p>
+                 </div>
+ 
+
+                 <div class="Founder Card">
+               <img src="../assets/officer 2.jpg" alt="Founder 2" class="founder-img">
+                <h3>Elliot Anderson</h3>
+                 <p>Leads floral design and customer relations.</p>
+                 </div>
+ 
+          </div>
+         </section>
          <section>
-            <h2>Our Story</h2>
-            <p>Founded in 2017, Flow Flowers has been bringing beauty and joy to Polokwane with fresh, seasonal flower arrangements.</p>
-            <h3>Our Mission</h3>
-            <p>To provide high-quality flowers and excellent customer service for every occasion.</p>
-            
-          <h3>Where to find us</h3>
-         <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d911.854675072448!2d29.48830829141695!3d-23.910223288043568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec6d766e0423db3%3A0x8e16ee1e06cc515d!2sFlora%20Park%2C%20Polokwane%2C%200699!5e0!3m2!1sen!2sza!4v1758675850780!5m2!1sen!2sza" 
+    <button class="accordion-button">Our Story</button>
+    <div class="accordion-content">
+    <p>Founded in 2017, Flow Flowers has been bringing beauty and joy to Polokwane with fresh, seasonal flower arrangements.</p>
+    </div>
+    <button class="accordion-button">Our Mission</button>
+    <div class="accordion-content">
+        <p>To provide high-quality flowers and excellent customer service for every occasion.</p>
+    </div>
+    <button class="accordion-button">Where to find us</button>
+    <div class="accordion-content">
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d911.854675072448!2d29.48830829141695!3d-23.910223288043568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec6d766e0423db3%3A0x8e16ee1e06cc515d!2sFlora%20Park%2C%20Polokwane%2C%200699!5e0!3m2!1sen!2sza!4v1758675850780!5m2!1sen!2sza" 
                 width="600" 
                 height="450" 
-                style="border:0;" 
+                style="border:0;"
                 allowfullscreen="" 
                 loading="lazy" 
                 referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>  
+    </div>
+    </section>
 
-                </iframe>
-               
-              </div>  
-  
-          
-          </section>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.accordion-button');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Toggle the 'active' class on the button itself
+            this.classList.toggle('active');
+
+            // Get the next sibling element, which is the content panel
+            const content = this.nextElementSibling;
+            
+            // Toggle the display of the content
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                // Set the height to the full scroll height of the content
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    });
+});
+</script>
+
         
           <footer>
             <p>&copy; 2025 Flow Flowers</p>
